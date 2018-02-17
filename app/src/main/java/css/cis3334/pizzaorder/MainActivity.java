@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
     public void onClickOrder(View view) {
         // ****** Students need to add code here to get information from the UI widgets...
-        //pizzaOrderSystem.getDelivery();
+        pizzaOrderSystem.setDelivery(chkbxDelivery.isChecked());
 
         String toppings = spinnerToppings.getSelectedItem().toString();
 

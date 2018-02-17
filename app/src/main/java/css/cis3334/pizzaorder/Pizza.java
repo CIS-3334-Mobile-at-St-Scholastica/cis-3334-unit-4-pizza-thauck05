@@ -36,6 +36,9 @@ public class Pizza {
             price += EXTRA_CHEESE_PRICE;
             description += " with extra cheese";
         }
+        if (delivery) {
+            description += " and will be delivered within 45 minutes";
+        }
     }
 
     public Double getPrice() {
