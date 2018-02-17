@@ -1,5 +1,7 @@
 package css.cis3334.pizzaorder;
 
+import static css.cis3334.pizzaorder.PizzaOrder.DELIVERY_PRICE;
+
 /**
  * Created by tgibbons on 2/10/2017.
  */
@@ -16,7 +18,7 @@ public class Pizza {
     private Double price;
     private String description;
 
-    public Pizza(String topping, pizzaSize size, boolean extraCheese) {
+    public Pizza(String topping, pizzaSize size, boolean extraCheese, boolean delivery) {
         this.topping = topping;
         this.size = size;
         this.extraCheese = extraCheese;
@@ -31,7 +33,7 @@ public class Pizza {
             description = "Large " + topping + " pizza";
         }
         if (extraCheese) {
-            price += EXTRA_CHEESE_PRICE;;
+            price += EXTRA_CHEESE_PRICE;
             description += " with extra cheese";
         }
     }

@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
         // Set up the Check Boxes
         chkbxCheese = (CheckBox) findViewById(R.id.checkBoxCheese);
-        chkbxDelivery = (CheckBox) findViewById(R.id.checkBoxDeluvery);
+        chkbxDelivery = (CheckBox) findViewById(R.id.checkBoxDelivery);
 
         // Set up the TextViews
         txtTotal = (TextView) findViewById(R.id.textViewTotal);
@@ -59,15 +59,30 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
     public void onClickOrder(View view) {
         // ****** Students need to add code here to get information from the UI widgets...
+        //pizzaOrderSystem.getDelivery();
+
+        String toppings = spinnerToppings.getSelectedItem().toString();
+
+        String size;
+        if (rbSmall.isChecked()) {
+            size = "Small";
+        } else if (rbMedium.isChecked()) {
+            size = "Medium";
+        } else {
+            size = "Large";
+        }
+
+        Boolean extraCheese;
+        extraCheese = chkbxCheese.isChecked();
 
         // ****** Students need to modify the call to OrderPizza to order the type of pizza the user selects using the UI widgets
-        String orderDescription = pizzaOrderSystem.OrderPizza("Peperoni", "large", false  );
+        String orderDescription = pizzaOrderSystem.OrderPizza(toppings, size, extraCheese);
 
 
         //display a pop up message for a long period of time
         Toast.makeText(getApplicationContext(), "You have ordered a "+orderDescription , Toast.LENGTH_LONG).show();
         // get the order total from the order system
-        txtTotal.setText("Total Due: " + pizzaOrderSystem.getTotalBill().toString());
+        txtTotal.setText("Total Due: $" + pizzaOrderSystem.getTotalBill().toString());
         // add this pizza to the textview the lists the pizzas
         txtPizzasOrdered.append(orderDescription+"\n");
 
